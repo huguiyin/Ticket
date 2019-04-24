@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+</head>
+<body>
+
+
+<div class="layui-form" id="target"></div>
+<button class="layui-btn" id="submitBtn">立即提交</button>
+<script src="layui/layui.js"></script>
+<script>
+    layui.config({
+        base: 'js/'
+    }).use(['birth'], function () {
+        var birth = layui.birth, $ = layui.$, json = {
+            data: [{startMonth: 8, startDay: 13, endMonth: 9, endDay: 10}, {startMonth: 3, startDay: 6, endMonth: 12, endDay: 20 }]
+        };
+
+        birth.render('target',json);
+        //birth.render('target');
+
+        $('#submitBtn').on('click', function () {
+            var data = birth.val();
+            $('body').append(JSON.stringify(data))
+        });
+    });
+</script>
+</body>
+</html>

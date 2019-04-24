@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>门票-新建产品</title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<link rel="stylesheet" href="css/formSelects-v4.css">
+		<link rel="stylesheet" href="css/ticketInput.css">
+		<script src="./layui/layui.js"></script>
+	</head>
+	<body>
+		<!-- 页面顶端的三大Tab标签 -->
+		<div class="layui-tab layui-tab-brief">
+			<ul class="layui-tab-title firstul">
+				<li class=" layui-this">产品基本信息</li>
+				<li>价格/库存/有效期</li>
+				<li>购买使用说明</li>
+			</ul>
+			<br />
+			<div class="layui-tab-content">
+				<!-- 第一个Tab页  产品信息 -->
+				<div class="layui-tab-item layui-show">
+					<form class="layui-form" action="">
+						<p id="itemTitle">分销渠道</p>
+						<hr class="layui-bg-blue" />
+						<div class="layui-form-item">
+							<label class="layui-form-label addRedStar">分发渠道</label>
+							<div class="layui-input-block">
+								<input type="checkbox" name="like[LxzB2BDisSys]" title="旅小助B2B分销系统" checked>
+								<input type="checkbox" name="like[TravelB2C]" title="旅行社B2C网站+门店" checked>
+								<input type="checkbox" name="like[MaiDongAPP]" title="麦冬旅行APP" checked>
+								<input type="checkbox" name="like[Other]" title="其他渠道" checked>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label addRedStar">B2B渠道控制</label>
+							<div class="layui-input-block">
+								<input type="radio" name="shared" lay-filter="cooperateShared" value="1" title="全渠道共享" checked="checked">
+								<input type="radio" name="shared" lay-filter="cooperateShared" value="2" title="合作企业共享">
+								<div class="layui-inline" style="width:300px;">
+									<select name="channelCtr" xm-select="selectChannelCtr" xm-select-search="" xm-select-search-type="dl" disabled="disabled">
+										<option value="1">旅小助</option>
+										<option value="2">麦冬旅行</option>
+										<option value="3">飞航国际</option>
+										<option value="4">业本科技</option>
+									</select>
+								</div>
+								<div class="layui-inline">
+									<button type="button" id="btnCooperativeCompany" class="layui-btn layui-btn-disabled" disabled>选择常用合作企业</button>
+								</div>
+							</div>
+						</div>
+						<div class="divInterp">
+							<p class="pInterp">选择全渠道共享：则该产品默认所有合作旅行社企业都可以看到，如需采购，则需由您授权该企业采取哪种支付方式（账期/在线支付）采购您的商品；</p>
+							<p class="pInterp">选择合作企业独享：则该产品默认只有合作旅行社企业可以查看和销售，其他企业无法看到该产品。</p>
+						</div>
+						<br />
+						<p id="itemTitle">基本信息</p>
+						<hr class="layui-bg-blue" />
+						<div class="layui-form-item">
+							<label class="layui-form-label">供应商产品编号</label>
+							<div class="layui-input-block">
+								<input name="inputTxtProductSN" id="inputTxtProductSN" type="text" class="layui-input" readonly="readonly" style="width:400px; color: darkgray;" />
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label addRedStar ">商品品类</label>
+							<div class="layui-input-block" id="divCommodityCategory" style="margin-left: 130px; width: 400px;">
+								<select name="city" lay-verify="required">
+									<option value=""></option>
+									<option value="0">单景区</option>
+									<option value="1">水上乐园</option>
+									<option value="2">动物园</option>
+									<option value="3">植物园</option>
+									<option value="4">温泉</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<div class="layui-form-item">
+									<label class="layui-form-label addRedStar ">景点与票种</label>
+								</div>
+							</div>
+							<div class="layui-col-md8">
+								<!-- <span class="layui-badge layui-bg-green spanBadgeCircle">1</span> -->
+								<div class="divSelectScenic">
+									<div class="divBadgeCircle">1</div>
+									<label class="layui-form-label lblSuppCode" style="width: 56px;">选择城市</label>
+									<div class="layui-input-block divSelectComm">
+										<select name="city" lay-verify="required">
+											<option value=""></option>
+											<option value="0">杭州</option>
+											<option value="1">芜湖</option>
+											<option value="2">北京</option>
+											<option value="3">南京</option>
+											<option value="4">苏州</option>
+										</select>
+									</div>
+								</div>
+								<div class="divSelectScenic">
+									<div class="divBadgeCircle">2</div>
+									<label class="layui-form-label lblSuppCode" style="width: 56px;">选择景点</label>
+									<div class="layui-input-block divSelectComm">
+										<select name="city" lay-verify="required">
+											<option value=""></option>
+											<option value="0">西湖</option>
+											<option value="1">赭山公园</option>
+											<option value="2">故宫</option>
+											<option value="3">玄武湖</option>
+											<option value="4">虎丘</option>
+										</select>
+									</div>
+								</div>
+								<div class="divSelectScenic">
+									<div class="divBadgeCircle">3</div>
+									<label class="layui-form-label lblSuppCode" style="width: 56px;">门票种类</label>
+									<div class="layui-input-block divSelectComm">
+										<select name="city" lay-verify="required">
+											<option value=""></option>
+											<option value="0">团购</option>
+											<option value="1">个人</option>
+											<option value="2">情侣</option>
+											<option value="3">亲子游</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="divInterp" id="divInterScenicType">
+								<p class="pInterp">如找不到指定选项，直接联系客服快速添加<img src="img/u77.png" class="imgU77CustServ" />
+									<span class="layui-badge layui-bg-blue spanBadgeCircle">客服添加后手动更新【景点与票种】</span>
+								</p>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label addRedStar ">合作属性</label>
+							<div class="layui-input-block" style="top:9px;">
+								<input type="radio" name="salemode" value="批发商售卖模式" title="批发商售卖模式">
+								<input type="radio" name="salemode" value="会员模式" title="会员模式">
+								<input type="radio" name="salemode" value="直营模式" title="直营模式">
+								<input type="radio" name="salemode" value="其他模式" title="其他模式">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label addRedStar ">产品名称</label>
+							<div class="layui-input-block">
+								<input type="text" name="productName" class="layui-input inputTextProName">
+								<p class="pProdNameInterp">格式要求：景点名称+消费项目+适用人群  例：故宫平日门票成人票</p>
+							</div>
+						</div>
+
+						<!-- 费用包含项目开始 -->
+						<div class="layui-form-item">
+							<label class="layui-form-label addRedStar">费用包含</label>
+
+							<table class="layui-table" style="width: 600px;">
+								<colgroup>
+									<col width="10">
+									<col width="10">
+									<col width="10">
+									<col width="10">
+									<col width="10">
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="tr-thCostIncluded" lay-data="{edit: 'text'}"><span style="color: red;">*</span>费用项目包含</th>
+										<th class="tr-thCostIncluded" lay-data="{edit: 'text'}"><span style="color: red;">*</span>数量</th>
+										<th class="tr-thCostIncluded" lay-data="{edit: 'text'}"><span style="color: red;">*</span>单位</th>
+										<th class="tr-thCostIncluded" lay-data="{edit: 'text'}">单次时长</th>
+										<th class="tr-thCostIncluded">操作管理</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="tr-thCostIncluded">
+										</td>
+										<td class="tr-thCostIncluded"></td>
+										<td class="tr-thCostIncluded"></td>
+										<td class="tr-thCostIncluded"></td>
+										<td class="tr-thCostIncluded">
+											<i class="layui-icon layui-icon-download-circle" style="font-size: 30px; color: limegreen;"> </i>
+											<i class="layui-icon layui-icon-add-circle " style="font-size: 30px; color: cadetblue;"> </i>
+											<i class="layui-icon layui-icon-close-fill" style="font-size: 30px; color: orangered;"></i>
+										</td>
+
+									</tr>
+									<tr>
+										<td colspan="5">
+											<label class="layui-form-label  lblSuppCode">项目可用数量</label>
+											<div class="layui-input-block">
+												<input type="radio" name="prjAvailable" value="全部可用" title="全部可用">
+												<input type="radio" name="prjAvailable" value="部分可用" title="">
+												<input type="text" class="layui-input input-textPrjAvail"><span>选</span>
+												<input type="text" class="layui-input input-textPrjAvail"><span>项可用</span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- 费用包含项目结束 -->
+						
+						<div class="layui-form-item layui-form-text ">
+							<label class="layui-form-label ">补充说明</label>
+							<div class="layui-input-block">
+								<textarea name="desc" placeholder="请输入内容" style="width: 400px;" class="layui-textarea"></textarea>
+							</div>
+						</div>
+						<div class="layui-form-item layui-form-text ">
+							<label class="layui-form-label ">适用人群限制</label>
+							<div class="layui-inline" id="divPeoLimited">
+								<select name="city" lay-verify="required">
+									<option value="">儿童</option>
+									<option value="0">老人</option>
+									<option value="1">残障人士</option>
+								</select>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn  layui-btn-primary">
+									儿&nbsp;&nbsp;&nbsp;童&nbsp;&nbsp;<i class="layui-icon layui-icon-close-fill" style="font-size: 30px; color:red;vertical-align:middle;"></i>
+								</button>
+							</div>
+							<div class="layui-inline ">
+								<button class="layui-btn  layui-btn-primary">
+									<span>老&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp;</span><i class="layui-icon layui-icon-close-fill" style="font-size: 30px; color:red;vertical-align:middle;"></i>
+								</button>
+							</div>
+						</div>
+						<div class="layui-form-item layui-form-text ">
+							<label class="layui-form-label ">费用不包含</label>
+							<div class="layui-input-block">
+								<textarea name="desc" placeholder="选填,需要额外花费才能享受的项目" class="layui-textarea" style="width: 400px;"></textarea>
+							</div>
+						</div>
+
+						<p id="itemTitle">产品图片</p>
+						<hr class="layui-bg-blue" />
+						<p id="itemTitle">结算规则</p>
+						<hr class="layui-bg-blue" />
+
+
+						<div class="layui-form-item ">
+							<label class="layui-form-label addRedStar">产品费率</label>
+							<div class="layui-input-block" style="top:2px;">
+								<input type="text" name="productName" class="layui-input " style="display: inline; width: 60px;">%
+							</div>
+						</div>
+
+						<br /><br /><br />
+						<hr class="layui-bg-blue" />
+						<div align="center">
+							<button class="layui-btn layui-btn-normal">保存产品基本信息</button>
+						</div>
+
+					</form>
+				</div>
+				
+				
+				<!-- 以下是第2个标签页---价格/库存/有效期 -->
+				<div class="layui-tab-item ">
+					<div class="layui-row">
+						<div class="layui-col-md12">
+							<span style="font-size:20px; font-family:'microsoft yahei'; font-weight:bold;">有效期设置&nbsp;&nbsp;</span>
+							<span style="color:red; font-family:'microsoft yahei';">重要提示：有效期模式设置后不支持修改</span>
+						</div>
+					</div>
+					<hr />
+					<form class="layui-form" action="">
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr"><span style="color: red;">*</span>有效期时间段</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="validtime" value="有效期模式" title="有效期模式,无需用户指定使用日期">
+									</div>
+								</div>
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="validtime" value="日期模式" title="使用日期模式,需要用户指定使用日期,自所选日期起">
+										<input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input txtModifyVerticalAlign"
+										 style="display: inline; width:40px;">
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; font-size:12px; float:none; padding-left: 2px; vertical-align: sub;">天内可使用</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr"><span style="color: red;">*</span>库存模式</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="stockMode" value="unlimitedStock" title="不限库存">
+										<input type="radio" name="stockMode" value="allStock" title="总库存">
+										<input type="radio" name="stockMode" value="dayStock" title="日库存">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:160px;"><span style="color: red;">*</span>是否允许修改市场销售价</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-form-item ">
+										<div class="layui-input-block">
+											<input type="radio" name="isAllowModifySalePrice" value="allowModifyPrice" title="允许修改市场销售价,旅行社&采购方可以灵活修改网页上给游客的市场销售价">
+										</div>
+									</div>
+									<div class="layui-form-item ">
+										<div class="layui-input-block divModifyTextSpacing">
+											<input type="radio" name="validtime" value="unallowModifyPrice" title="不允许修改市场销售价,维护价格体系,不支持旅行社&采购方修改网页上市场销售价">
+										</div>
+									</div>
+									<div class="layui-form-item ">
+										<div class="layui-input-block divModifyTextSpacing">
+											<label class="layui-form-label modifyLabelAttr" style="display: inline; font-size:8px;float:none; padding-left: 0px; vertical-align: sub;">
+												1、建议市场价=同行结算价+建议加价&同行利润<br />
+												2、成人、儿童、单房差如不填，则默认没有该规格<br />
+												3、如果供应商出于市场保护原则，可以采用“不允许修改市场价”，设置后所有渠道价格就无法修改。但旅行社&采购方可能也会因此失去灵活溢价能力，有可能会对您的产品销量产生影响
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br />
+						<br />
+						<div class="layui-row">
+							<div class="layui-col-md12">
+								<span style="font-size:20px; font-family:'microsoft yahei'; font-weight:bold;">退改规则&nbsp;&nbsp;</span>
+								<span style="color:red; font-family:'microsoft yahei';">重要提示：“随时退”，“有条件退”需在24小时内确认，否则系统将默认同意退款，自动确认并退给用户</span>
+							</div>
+						</div>
+						<hr />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:160px;"><span style="color: red;">*</span>退款设置</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="refundSetup" value="fastRefund" title="极速退&nbsp;&nbsp;&nbsp;未消费订单,无论是否过期,订单可多次退款,无需供应商人工确认,
+											立刻退款,选择本项的商家请验票后再入园,以防损失.">
+									</div>
+								</div>
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="refundSetup" value="anytimeRefund" title="随时退&nbsp;&nbsp;&nbsp;未经消费订单,无论是否过期,订单可多次退款,随时可退,无退款手续费.">
+									</div>
+								</div>
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="refundSetup" value="conditionRefund" title="有条件退">
+									</div>
+									<div class="layui-input-block" style=" border:1px  solid  lightgray; width: 500px; padding-top: 2px;">
+										<div class="layui-form-item">
+											<label class="layui-form-label" style="padding-left: 0px; font-size: 12px; padding-right: 0px;">时间限制</label>
+											<div class="layui-input-inline" style="width:150px; margin-left: 6px; padding-top:1px;">
+												<select name="happydate" lay-verify="required" style="font-size:12px;">
+													<option value=""></option>
+													<option value="0">无限制</option>
+													<option value="1">游玩日期开始前</option>
+													<option value="2">游玩日期截止前</option>
+													<option value="3">游玩日期截止后</option>
+												</select>
+											</div>
+											<input type="text" class="layui-input" style="display:inline-block; float:left; margin-top: 1px; height:22px; width:50px;">
+											<label class="layui-form-label" style="text-align:left; font-size: 12px; padding-left:1px; margin-left:2px;width: 10px;">天</label>
+											<input type="text" class="layui-input" style="display:inline-block; float:left; margin-top: 1px; height:22px; width:50px;">
+											<label class="layui-form-label" style="text-align:left; font-size: 12px; padding-left:1px; margin-left:2px;width: 10px;">点</label>
+											<input type="text" class="layui-input" style="display:inline-block; float:left; margin-top: 1px; height:22px; width:50px;">
+											<label class="layui-form-label" style="text-align:left; font-size: 12px; padding-left:1px; margin-left:2px;width: 10px;">分</label>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label" style="padding-left: 0px; font-size: 12px; padding-right: 0px;">手续费</label>
+											<div class="layui-input-inline" style="width:150px; margin-left: 6px; padding-top:1px;">
+												<select name="happydate" lay-verify="required" style="font-size:12px;">
+													<option value=""></option>
+													<option value="0">无手续费</option>
+													<option value="1">每张票需要手续费（元）</option>
+													<option value="2">每张订单需要手续费（元）</option>
+												</select>
+											</div>
+											<input type="text" class="layui-input" style="display:inline-block; float:left; margin-top: 1px; height:22px; width:50px;">
+											<label class="layui-form-label" style="text-align:left; font-size: 12px; padding-left:1px; margin-left:2px;width: 10px;">元</label>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label" style="padding-left: 0px; font-size: 12px; padding-right: 5px;">是否部分退完</label>
+											<input type="radio" name="isPartialRefund" value="partialRefundEnable" title="可分批退款">
+											<input type="radio" name="isPartialRefund" value="partialRefundUnable" title="不可部分退,只能一次退完">
+										</div>
+									</div>
+
+								</div>
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="refundSetup" value="noRefund" title="不可退款&nbsp;&nbsp;&nbsp;一经购买,不可退款.不可退款可能造成旅行社&采购方和游客不敢轻易购买,不利于产品销售,请慎重选择该项.">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:160px;"><span style="color: red;">*</span>改期条款</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="refundSetup" value="fastRefund" title="不支持改期&nbsp;&nbsp;&nbsp;门票产品不支持渠道方&游客发起改期,建议退款重新下单,或管理员在后台订单直接手动改期.">
+									</div>
+								</div>
+							</div>
+						</div>
+						<br />
+						<br />
+						<div class="layui-row">
+							<div class="layui-col-md12">
+								<span style="font-size:20px; font-family:'microsoft yahei'; font-weight:bold;">上下架控制</span>
+							</div>
+						</div>
+						<hr />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:160px;"><span style="color: red;">*</span>上架时间</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="saleTime" value="needAuthorization" title="审核通过后自动上架&nbsp;&nbsp;&nbsp;自动审核和人工审核相结合,审核通过后自动上架">
+									</div>
+								</div>
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="saleTime" value="autoAfterSaleTimeStart" title="有效期开始后自动上架&nbsp;&nbsp;&nbsp;有库存的日期当天0点自动上架.">
+									</div>
+								</div>
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="saleTime" value="manualSale" title="手动上架">
+									</div>
+								</div>
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="saleTime" value="appointedDate" title="指定日期上架">
+										<div class="layui-input-inline" style="float:none">
+											<input type="text" class="layui-input" id="inputtxtAppointedDate" style="height: 30px; width:100px;">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br />
+						<br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:160px;"><span style="color: red;">*</span>下架时间</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="offShelves" value="autoOffShelves" title="价格日历期限已过自动下架">
+									</div>
+								</div>
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="offShelves" value="appointedOffShelvesDate" title="指定下架时间">
+										<div class="layui-input-inline" style="float:none">
+											<input type="text" class="layui-input" id="inputtxtAppointedOffShelvesDate" style="height: 30px; width:100px;">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr />
+						<div class="layui-row">
+							<div class="layui-col-md12">
+								<div class="layui-form-item" style="text-align: center;">
+									<button class="layui-btn" style="position: absolute; left:46%;">保存产品价格/库存/有效期</button>
+								</div>
+							</div>
+						</div>
+						<br /><br /><br /><br />
+					</form>
+				</div>
+
+				<!-- 以下是第3个标签页---购买使用说明 -->
+				<div class="layui-tab-item  modifyLayuiInputBlcok">
+					<div class="layui-row">
+						<div class="layui-col-md12">
+							<span style="font-size:20px; font-family:'microsoft yahei'; font-weight:bold;">预订限制设置</span>
+						</div>
+					</div>
+					<hr />
+					<form class="layui-form" action="">
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr"><span style="color: red;">*</span>提前购买时间</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="prePurchaseTime" value="任意时间" title="用户任意时间均可购买">
+									</div>
+								</div>
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="prePurchaseTime" value="提前购买" title="用户需提前">
+										<div class="layui-input-inline" style="width:50px; margin-left: 0px; margin-right: 0px; padding-top:3px; float: none;">
+											<select name="hour" lay-verify="required" style="font-size:12px; height: 90px;">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+											</select>
+										</div>
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; float:none; font-size:12px; padding-left: 0px; padding-right: 0px; vertical-align: sub;">小时</label>
+										<div class="layui-input-inline" style="width:50px; margin-left: 0px; margin-right: 0px; padding-top:3px; float: none;">
+											<select name="minute" lay-verify="required" style="font-size:12px; height: 90px;">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+											</select>
+										</div>
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; float:none; font-size:12px; padding-left: 0px; vertical-align: sub;">分钟购买，方可使用（生效）</label>
+
+									</div>
+								</div>
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="prePurchaseTime" value="提前购买天数" title="用户需在游玩">
+										<div class="layui-input-inline" style="width:70px; margin-left: 0px; margin-right: 0px; padding-top:3px; float: none;">
+											<select name="days" lay-verify="required" style="font-size:12px; height: 90px;">
+												<option value="0">当天</option>
+												<option value="1">前1天</option>
+												<option value="2">前2天</option>
+												<option value="3">前3天</option>
+												<option value="4">前4天</option>
+												<option value="5">前5天</option>
+												<option value="6">前6天</option>
+												<option value="7">前7天</option>
+											</select>
+										</div>
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; float:none; font-size:12px; padding-left: 0px; padding-right: 0px; vertical-align: sub;">的</label>
+										<div class="layui-input-inline" style="width:50px; margin-left: 0px; margin-right: 0px; padding-top:3px; float: none;">
+											<select name="hour" lay-verify="required" style="font-size:12px; height: 90px;">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+												<option value="13">13</option>
+												<option value="14">14</option>
+												<option value="15">15</option>
+												<option value="16">16</option>
+												<option value="17">17</option>
+												<option value="18">18</option>
+												<option value="19">19</option>
+												<option value="20">20</option>
+												<option value="21">21</option>
+												<option value="22">22</option>
+												<option value="23">23</option>
+											</select>
+										</div>
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; float:none; font-size:12px; padding-left: 0px; padding-right: 0px; vertical-align: sub;">点</label>
+										<div class="layui-input-inline" style="width:50px; margin-left: 0px; margin-right: 0px; padding-top:3px; float: none;">
+											<select name="minute" lay-verify="required" style="font-size:12px; height: 90px;">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+												<option value="13">13</option>
+												<option value="14">14</option>
+												<option value="15">15</option>
+												<option value="16">16</option>
+												<option value="17">17</option>
+												<option value="18">18</option>
+												<option value="19">19</option>
+												<option value="20">20</option>
+												<option value="21">21</option>
+												<option value="22">22</option>
+												<option value="23">23</option>
+											</select>
+										</div>
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; float:none; font-size:12px; padding-left: 0px; vertical-align: sub;">
+											分前购买，超时无法购买到出游日期门票
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr"><span style="color: red;">*</span>联系人信息</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="isContactInfoNeeded" value="不需要" title="不需要" checked="checked">
+										<input type="radio" name="isContactInfoNeeded" value="需要" title="需要">
+									</div>
+									<div class="layui-input-block" style="float:left;width:160px; border:1px solid lightgray; padding-left: 15px; padding-bottom:8px; ">
+										<input type="checkbox" lay-skin="primary" name="like[name]" title="姓名" disabled="disabled">
+										<input type="checkbox" lay-skin="primary" name="like[phone]" title="手机号" disabled="disabled">
+									</div>
+									<label class="layui-form-label modifyLabelAttr" style="line-height:40px;display: inline; float:none; font-size:12px; padding-left: 5px; ">
+										用于与该用户统一联系
+									</label>
+								</div>
+							</div>
+						</div>
+						<br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr"><span style="color: red;">*</span>出游人信息</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block divModifyTextSpacing">
+										<input type="radio" name="isTouristInfoNeeded" value="不需要" title="不需要" checked="checked"><span style="width: 10px;"></span>
+										<input type="radio" name="isTouristInfoNeeded" value="需要1位" title="只需要1位出游人信息">
+										<input type="radio" name="isTouristInfoNeeded" value="需要全部" title="需要全部出游人信息">
+										<input type="radio" name="isTouristInfoNeeded" value="需要" title="每" class="abc" style="margin-right: 0px; padding-right: 0px;">
+										<input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input txtModifyVerticalAlign"
+										 style="display: inline; width:40px; padding-left: 2px;">
+										<label class="layui-form-label modifyLabelAttr" style="font-size:12px; display: inline; float:none; padding-left: 2px; vertical-align: middle;">
+											游玩人共用1个信息
+										</label>
+									</div>
+									<div class="layui-input-block" style="float:left;width:600px; border:1px solid lightgray; padding-left: 15px; padding-bottom:8px; ">
+										<div>
+											<label class="layui-form-label modifyLabelAttr" style="margin-top:5px; font-size:12px; width:50px; display: inline-block; float:none; padding-left: 2px; vertical-align: middle;">
+												身份信息
+											</label>
+											<input type="checkbox" lay-skin="primary" name="personalInfo[name]" title="姓名">
+											<input type="checkbox" lay-skin="primary" name="personalInfo[phone]" title="手机号">
+										</div>
+										<div>
+											<label class="layui-form-label modifyLabelAttr" style="margin-top:5px; font-size:12px; width:50px; display: inline-block; float:none; padding-left: 2px; vertical-align: middle;">
+												证件信息
+											</label>
+											<input type="checkbox" lay-skin="primary" name="certificateInfo[id]" title="身份证">
+											<input type="checkbox" lay-skin="primary" name="certificateInfo[passport]" title="护照">
+											<input type="checkbox" lay-skin="primary" name="certificateInfo[taiwanCompatriots]" title="台胞证">
+											<input type="checkbox" lay-skin="primary" name="certificateInfo[hongKongandMacaoPass]" title="港澳通行证">
+											<input type="checkbox" lay-skin="primary" name="certificateInfo[residentsPass]" title="大陆居民往来台湾通行证">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr"><span style="color: red;">*</span>预定数量限制</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-input-block">
+									<div class="layui-form-item ">
+										<label class="layui-form-label" style="width:100px; text-align: left; padding-left: 0px; font-size: 12px; padding-right: 0px;">
+											每笔订单最少购买
+										</label>
+										<input type="text" class="layui-input" style="display:inline-block; float:left; margin-top: 1px; height:22px; width:50px;">
+										<label class="layui-form-label" style="text-align:left; font-size: 12px; padding-left:1px; margin-left:2px;width:72px; padding-right: 2px;">张，最多购买</label>
+										<input type="text" placeholder="无限制" class="layui-input" style="display:inline-block; float:left; margin-top: 1px; height:22px; width:60px;">
+										<label class="layui-form-label" style="text-align:left; font-size: 12px; padding-left:1px; margin-left:2px;width: 10px;">张</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr"><span style="color: red;">*</span>订单取消时间</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-input-block">
+									<div class="layui-form-item ">
+										<label class="layui-form-label" style="width:64px; text-align: left; padding-left: 0px; font-size: 12px; padding-right: 0px;">
+											下单成功后
+										</label>
+										<input type="text" class="layui-input" style="display:inline-block; float:left; margin-top: 1px; height:22px; width:50px;">
+										<label class="layui-form-label" style="width:280px; text-align:left; font-size: 12px; padding-left:1px; margin-left:2px; padding-right: 2px;">
+											分钟内如未付款，系统将自动取消订单</label>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<br /><br />
+						<div class="layui-row">
+							<div class="layui-col-md12">
+								<span style="font-size:20px; font-family:'microsoft yahei'; font-weight:bold;">预订短信设置</span>
+							</div>
+						</div>
+						<hr />
+						<div class="layui-row">
+							<div class="layui-col-md12" style="padding-left: 15px;">
+								<input type="checkbox" lay-skin="primary" name="personalInfo[name]" title="订单短信通知   如旅行社（采购方）无自有网站系统的，旅行社&采购方下单后由供应商以旅行社&采购方名义为顾客发送订单下单成功短信">
+							</div>
+						</div>
+						<div class="layui-row">
+							<div class="layui-form-item layui-form-text">
+								<div class="layui-input-block" style="margin-left: 15px; width:753px;">
+									<textarea name="desc" placeholder="填写比如如何取票,在哪里取票,取票时间,取票方式等,填写后短信中会插入该段内容,限制50字以内" class="layui-textarea"></textarea>
+								</div>
+								<label style=" display:inline-block; margin-top:10px; margin-left: 15px; color: orangered;">修改后请及时点击手动同步，确保数据一致性！</label>
+								<button class="layui-btn layui-btn-sm">手动同步</button>
+							</div>
+						</div>
+						<br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr"><span style="color: red;">*</span>出团通知时间</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-input-block">
+									<div class="layui-form-item ">
+										<label class="layui-form-label" style="width:100px; text-align: left; padding-left: 0px; font-size: 12px; padding-right: 0px;">
+											距离出团日期前
+										</label>
+										<input type="text" class="layui-input" style="display:inline-block; float:left; margin-top: 1px; height:22px; width:50px;">
+										<label class="layui-form-label" style="text-align:left; font-size: 12px; padding-left:1px; margin-left:2px;width:12px; padding-right: 2px;">天</label>
+										<input type="text" class="layui-input" style="display:inline-block; float:left; margin-top: 1px; height:22px; width:60px;">
+										<label class="layui-form-label" style="text-align:left; font-size: 12px; padding-left:1px; margin-left:2px;width: 400px;">点前以旅行社&采购方方名义为顾客发送出团通知短信</label>
+									</div>
+									<label style="display: block; font-size: 12px; color:darkgray;">强烈建议供应商选择以上两项，提升旅行社&采购方和游客的购买体验，增加旅行社&采购方的好感和信任</label>
+
+								</div>
+							</div>
+						</div><br />
+						<div class="layui-row">
+							<label class="layui-form-label modifyLabelAttr" style="width:300px;">给旅行社&采购方销售建议(游客不可见)</label>
+							<div class="layui-input-block" style="margin-left: 15px; width:753px;">
+								<textarea name="desc" placeholder="比如建议门店或前台提前把自费项目收上来,65岁以上老人要家人陪同等等,限制70字以内" class="layui-textarea"></textarea>
+							</div>
+						</div><br /><br />
+						<div class="layui-row">
+							<div class="layui-col-md12">
+								<span style="font-size:20px; font-family:'microsoft yahei'; font-weight:bold;">入园方式</span>
+							</div>
+						</div>
+						<hr />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr"><span style="color: red;">*</span>出票方式</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="ticketIssuingMethod" value="自动" title="系统自动发送验证码短信" checked="checked">
+										<input type="radio" name="ticketIssuingMethod" value="人工" title="供应商人工出票">
+									</div>
+								</div>
+							</div>
+						</div><br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:120px;"><span style="color: red;">*</span>是否需要集合入园</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="isTogetherIntoParden" value="是" title="是(集合入园)" checked="checked">
+										<input type="radio" name="isTogetherIntoParden" value="否" title="否(无需集合入园)">
+									</div>
+								</div>
+							</div>
+						</div><br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:120px;"><span style="color: red;">*</span>入园方式</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="isChangeTicket" value="是" title="无需换票,直接验证入园" checked="checked">
+										<input type="radio" name="isChangeTicket" value="否" title="需要换票入园">
+									</div>
+								</div>
+							</div>
+						</div><br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:120px;"><span style="color: red;">*</span>入园方式补充说明</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<input type="radio" name="additionalExplanation" value="官方" title="景区官方入园通道直接入园(例如景区闸机码扫码入园)" checked="checked">
+										<input type="radio" name="additionalExplanation" value="三方" title="三方特殊入园通道直接入园(例如景区非工作人员验证入园)">
+									</div>
+								</div>
+							</div>
+						</div><br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:120px;"><span style="color: red;">*</span>入园凭证</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block changeCheckboxMargintop">
+										<label style="font-size: 12px; margin-right: 10px;">务必携带</label>
+										<input type="checkbox" lay-skin="primary" name="pardenId[messageOrder]" title="出示下单收到的验证码短信/出示下单客户端订单">
+										<input type="checkbox" lay-skin="primary" name="pardenId[personalID]" title="身份证原件">
+										<input type="checkbox" lay-skin="primary" name="pardenId[OtherID]" title="其他凭证">
+										<input type="text" class="layui-input" placeholder="如学生证原件" style="display:inline-block; margin-top: 3px; height:22px; width:350px;">
+
+									</div>
+								</div>
+							</div>
+						</div><br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:100px;">凭证补充说明</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block" style="margin-left: 0px; width:603px;">
+										<textarea style="margin-left: 0px;" name="desc" placeholder="例:若忘带身份证原件,可凭本人有效驾驶证原件,护照原件或户口本原件,前往景区游客服务中心办理入园"
+										 class="layui-textarea"></textarea>
+									</div>
+								</div>
+							</div>
+						</div><br />
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:120px;"><span style="color: red;">*</span>入园时间</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block">
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; float:none; font-size:12px; padding-left: 0px; padding-right: 0px; vertical-align: sub;">从</label>
+
+										<div class="layui-input-inline" style="width:50px; margin-left: 0px; margin-right: 0px; padding-top:3px; float: none;">
+											<select name="hour" lay-verify="required" style="font-size:12px; height: 90px;">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+												<option value="13">13</option>
+												<option value="14">14</option>
+												<option value="15">15</option>
+												<option value="16">16</option>
+												<option value="17">17</option>
+												<option value="18">18</option>
+												<option value="19">19</option>
+												<option value="20">20</option>
+												<option value="21">21</option>
+												<option value="22">22</option>
+												<option value="23">23</option>
+											</select>
+										</div>
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; float:none; font-size:12px; padding-left: 0px; padding-right: 0px; vertical-align: sub;">点</label>
+										<div class="layui-input-inline" style="width:50px; margin-left: 0px; margin-right: 0px; padding-top:3px; float: none;">
+											<select name="minute" lay-verify="required" style="font-size:12px; height: 90px;">
+												<option value="0">0</option>
+												<option value="1">15</option>
+												<option value="2">30</option>
+												<option value="3">45</option>
+												<option value="4">59</option>
+											</select>
+										</div>
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; float:none; font-size:12px; padding-left: 0px; padding-right: 1px; vertical-align: sub;">分到</label>
+										<div class="layui-input-inline" style="width:50px; margin-left: 0px; margin-right: 0px; padding-top:3px; float: none;">
+											<select name="hour" lay-verify="required" style="font-size:12px; height: 90px;">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+												<option value="13">13</option>
+												<option value="14">14</option>
+												<option value="15">15</option>
+												<option value="16">16</option>
+												<option value="17">17</option>
+												<option value="18">18</option>
+												<option value="19">19</option>
+												<option value="20">20</option>
+												<option value="21">21</option>
+												<option value="22">22</option>
+												<option value="23">23</option>
+											</select>
+										</div>
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; float:none; font-size:12px; padding-left: 0px; padding-right: 0px; vertical-align: sub;">点</label>
+										<div class="layui-input-inline" style="width:50px; margin-left: 0px; margin-right: 0px; padding-top:3px; float: none;">
+											<select name="minute" lay-verify="required" style="font-size:12px; height: 90px;">
+												<option value="0">0</option>
+												<option value="1">15</option>
+												<option value="2">30</option>
+												<option value="3">45</option>
+												<option value="4">59</option>
+											</select>
+										</div>
+										<label class="layui-form-label modifyLabelAttr" style="display: inline; float:none; font-size:12px; padding-left: 0px; vertical-align: sub;">分</label>
+										<input type="checkbox" lay-skin="primary" name="additionalInfo" title="补充信息">
+
+										<i class="layui-icon layui-icon-add-circle" style="position: relative; font-size: 20px; top:5px; color:green;"></i>
+
+									</div>
+								</div>
+							</div>
+						</div><br />
+
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:120px;"><span style="color: red;">*</span>入园地址</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block" style="margin-left: 0px;">
+										<input type="text" class="layui-input" placeholder="具体到景区大门,无需重复填写景区地址,否则影响用户体验" style="display:inline-block; margin-top: 3px; height:22px; width:600px;">
+									</div>
+								</div>
+							</div>
+						</div><br />
+
+						<div class="layui-row">
+							<div class="layui-col-md1">
+								<label class="layui-form-label modifyLabelAttr" style="width:100px;">其他说明</label>
+							</div>
+							<div class="layui-col-md10">
+								<div class="layui-form-item ">
+									<div class="layui-input-block" style="margin-left: 0px; width:603px;">
+										<textarea style="margin-left: 0px;" name="desc" placeholder="选填,已在其他栏填写过的信息请勿重新填写,否则影响用户体验" class="layui-textarea"></textarea>
+									</div>
+								</div>
+							</div>
+						</div><br />
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+		<script>
+			layui.use('table', function() {
+				var table = layui.table;
+				//   table.init('tableCostIncluded', {    
+				//   }); 
+				//   //监听单元格编辑
+				//   table.on('edit(test3)', function(obj){
+				//     var value = obj.value //得到修改后的值
+				//     ,data = obj.data //得到所在行所有键值
+				//     ,field = obj.field; //得到字段
+				//     layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+				//   });
+			});
+		</script>
+
+		<script>
+			layui.use('laydate', function() {
+				var laydate = layui.laydate;
+
+				//执行一个laydate实例
+				laydate.render({
+					elem: '#inputtxtAppointedDate' //指定元素
+				});
+
+				laydate.render({
+					elem: '#inputtxtAppointedOffShelvesDate' //指定元素
+				});
+
+			});
+		</script>
+
+
+		<script>
+			layui.use('element', function() {
+				var $ = layui.jquery
+				element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+			});
+		</script>
+
+		<script>
+			layui.use('form', function() {
+				var form = layui.form;
+				//监听提交
+				form.on('submit(formDemo)', function(data) {
+					layer.msg(JSON.stringify(data.field));
+					return false;
+				});
+			});
+
+			layui.use('layer', function() {
+				var $ = layui.jquery
+				var layer = layui.layer;
+
+			});
+		</script>
+		<script>
+			layui.config({
+				base: 'js/' //你存放新模块的目录，注意，不是layui的模块目录
+			}).extend({
+				formSelects: 'formSelects-v4'
+			}).use('productTicket'); //加载入口
+		</script>
+
+	</body>
+</html>

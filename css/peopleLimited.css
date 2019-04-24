@@ -1,0 +1,100 @@
+
+/*供应商产品编号 label*/
+.lblPeoLimited{
+	width:110px;
+	text-align: left;
+}
+#divPeoLimited{
+	margin-top: 0px;
+	margin-left: 0px ;
+}
+
+/* 限制条件 label*/
+.modifyRemarkAlign{
+	width:110px;
+	text-align: right;
+	float:right;
+}
+/*修改input block的左外边距为0*/
+.modifyMarginLeft{
+	margin-left: 0px;
+	/* width:100% */
+}
+
+/*绘制年龄限制框*/
+.ageLimit{
+	width:100px;
+	border:1px solid lightgray;
+	min-height: 36px;
+	border-radius:3px;	
+	display: inline-block;
+}
+
+.ageLimit:hover{ 
+/* -webkit-transition:border linear .2s,-webkit-box-shadow linear .5s; 
+border-color:rgba(141,39,142,.75); 
+-webkit-box-shadow:0 0 18px rgba(111,1,32,3); */
+border-color: #009E94;
+}
+
+.modifyInputText{
+	display: inline;
+	width:50px;
+	border:0px;
+}
+
+/*带背景的“周岁”字样*/
+.ageYear{
+	display:inline;
+	width:20px;
+	background: lightgray;
+	padding:12px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+/* 设置间距 */
+.divSpacing{
+	margin-left: 10px;
+	width:85px;
+}
+
+/* 设置一条细线 */
+.divLineCSS{
+	display: inline-block;
+	padding-top: 5px;
+	border-top:1px solid darkgray;
+	width: 40px;	
+}
+
+/* 修改文本框样式 */
+.modifyInputTextCSS{
+	width:400px;
+	/* border-color: red; */
+	
+}
+
+.modifyInputTextCSS:focus {	
+	border-color: green !important;
+}
+
+/* 限制详情说明 */
+.divLimitRemark{
+	margin-top:5px;
+	font-size: 5px;
+	color: red;
+}
+
+/*绘制年龄限制框*/
+.monthDateLimit{
+	width:60px;
+	border:1px solid lightgray;
+	min-height: 36px;
+	border-radius:3px;	
+	display: inline-block;
+}
+
+/* 控制右边距 */
+.controlMarginRight{
+	margin-right: 0px !important;
+}

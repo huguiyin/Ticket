@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>适用人群限制</title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<link rel="stylesheet" href="css/peopleLimited.css">
+
+	</head>
+	<body>
+		<form class="layui-form">
+			<div class="layui-row">
+				<div class="layui-col-md12">
+					<div class="layui-form-item layui-form-text ">
+						<label class="layui-form-label lblPeoLimited">适用人群限制</label>
+						<div class="layui-inline " id="divPeoLimited">
+							<select id="selPeopleLim" name="peoLimited" lay-verify="required" lay-filter="selPeoLimited">
+								<option id="optSelect" value="">请选择受限人群</option>
+								<option id="optChild" value="儿&nbsp;&nbsp;&nbsp;&nbsp;童&nbsp;&nbsp;">儿童</option>
+								<option id="optOld" value="老&nbsp;&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp;">老人</option>
+								<option id="optDisabled" value="残障人士&nbsp;&nbsp; ">残障人士</option>
+							</select>
+						</div>
+						<div class="layui-inline divAddBtn">
+							<!--<button type="button" class="layui-btn  layui-btn-primary" id="btn">-->
+							<!--儿&nbsp;&nbsp;&nbsp;童&nbsp;&nbsp;<i class="layui-icon layui-icon-close-fill" style="font-size: 30px; color:red;vertical-align:middle;"></i>-->
+							<!--</button>-->
+						</div>
+						<!--<button type='button' class="layui-btn layui-btn-lg" id="b1">大型按钮</button>-->
+					</div>
+				</div>
+			</div>
+			<div class="layui-row">
+				<div class="layui-col-md1">
+					<div class="layui-form-item ">
+						<label class="layui-form-label modifyRemarkAlign">限制条件</label>
+					</div>
+				</div>
+				<div class="layui-col-md11">
+					<div class="layui-form-item">
+						<div class="layui-input-block modifyMarginLeft">
+							<input type="checkbox" name="like[age]" title="年龄">
+							<input type="checkbox" name="like[birthday]" title="出生日期">
+							<input type="checkbox" name="like[district]" title="地区">
+							<input type="checkbox" name="like[sex]" title="性别">
+							<input type="checkbox" name="like[certificate]" title="证件">
+							<input type="checkbox" name="like[height]" title="身高">
+							<input type="checkbox" name="like[other]" title="其他">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-row">
+				<div class="layui-col-md1">
+					<div class="layui-form-item ">
+						<label class="layui-form-label modifyRemarkAlign">已选条件</label>
+					</div>
+				</div>
+				<div class="layui-col-md11">
+					<div class="layui-form-item">
+						<div class="layui-input-block modifyMarginLeft">
+							<input type="radio" name="conditionSelct" value="任选其一限制" title="任选其一限制">
+							<input type="radio" name="conditionSelct" value="同时限制" title="同时限制">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-row">
+				<div class="layui-col-md1">
+					<div class="layui-form-item ">
+						<label class="layui-form-label modifyRemarkAlign"><span style="color: red;">*</span>年龄限制</label>
+					</div>
+				</div>
+				<div class="layui-col-md11">
+					<div class="layui-form-item">
+						<div class="layui-input-block modifyMarginLeft">
+							<div class="ageLimit">
+								<input type="text" name="title" placeholder="不限" autocomplete="off" class="layui-input modifyInputText">
+								<div class="ageYear">
+									周岁
+								</div>
+							</div>
+							<div class=" ageLimit divSpacing">
+								<select name="ageIncluded">
+									<option value="0">包含</option>
+									<option value="1">不包含</option>
+								</select>
+							</div>
+							<div class="divLineCSS">
+							</div>
+							<div class="ageLimit">
+								<input type="text" name="title" placeholder="不限" autocomplete="off" class="layui-input modifyInputText">
+								<div class="ageYear">
+									周岁
+								</div>
+							</div>
+							<div class=" ageLimit divSpacing">
+								<select name="ageIncluded">
+									<option value="0">包含</option>
+									<option value="1">不包含</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="layui-row">
+				<div class="layui-col-md1">
+					<div class="layui-form-item ">
+						<label class="layui-form-label modifyRemarkAlign"><span style="color: red;">*</span>身高限制</label>
+					</div>
+				</div>
+				<div class="layui-col-md11">
+					<div class="layui-form-item">
+						<div class="layui-input-block modifyMarginLeft">
+							<input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input modifyInputTextCSS">
+						</div>
+						<div class="divLimitRemark">
+							勾选限制条件后，详情不能为空
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-row">
+				<div class="layui-col-md1">
+					<div class="layui-form-item ">
+						<label class="layui-form-label modifyRemarkAlign"><span style="color: red;">*</span>地区限制</label>
+					</div>
+				</div>
+				<div class="layui-col-md11">
+					<div class="layui-form-item">
+						<div class="layui-input-block modifyMarginLeft">
+							<button type="button" class="layui-btn ">添加城市</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-row">
+				<div class="layui-col-md1">
+					<div class="layui-form-item ">
+						<label class="layui-form-label modifyRemarkAlign"><span style="color: red;">*</span>性别限制</label>
+					</div>
+				</div>
+				<div class="layui-col-md11">
+					<div class="layui-form-item">
+						<div class="layui-input-block modifyMarginLeft">
+							<input type="radio" name="sex" value="女" title="女">
+							<input type="radio" name="sex" value="男" title="男">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-row">
+				<div class="layui-col-md1">
+					<div class="layui-form-item ">
+						<label class="layui-form-label modifyRemarkAlign"><span style="color: red;">*</span>证件限制</label>
+					</div>
+				</div>
+				<div class="layui-col-md11">
+					<div class="layui-form-item">
+						<div class="layui-input-block modifyMarginLeft">
+							<input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input modifyInputTextCSS">
+						</div>
+						<div class="divLimitRemark">
+							勾选限制条件后，详情不能为空
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-row">
+				<div class="layui-col-md1">
+					<div class="layui-form-item ">
+						<label class="layui-form-label modifyRemarkAlign"><span style="color: red;">*</span>出生日期限制</label>
+					</div>
+				</div>
+				<div id="divDateLimitItems" class="layui-col-md11">
+					<div class="layui-form-item">
+						<div class="layui-input-inline modifyMarginLeft" style="width:190px;margin-right:0px;">
+							<div class=" monthDateLimit divSpacing" style="margin-left:0px">
+								<select name="startMonthSelected" lay-filter="selStartMonth">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>
+							</div>
+							<div class="layui-inline controlMarginRight">
+								月
+							</div>
+							<div class="layui-form layui-inline monthDateLimit divSpacing" style="margin-right: 0px;" lay-filter="filSelStartDate">
+								<select id="idSelStartDate" name="startDateSelected">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+									<option value="25">25</option>
+									<option value="26">26</option>
+									<option value="27">27</option>
+									<option value="28">28</option>
+									<option value="29">29</option>
+									<option value="30">30</option>
+									<option value="31">31</option>
+								</select>
+							</div>
+							<div class="layui-inline controlMarginRight">
+								日
+							</div>
+						</div>
+						<div class="divLineCSS">
+						</div>
+						<div class="layui-inline monthDateLimit divSpacing" style="margin-right: 0px;">
+							<select name="endMonthSelected" lay-filter="selEndMonth">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>
+						</div>
+
+						<div class="layui-inline controlMarginRight">
+							月
+						</div>
+						<div class="layui-form layui-inline monthDateLimit divSpacing" style="margin-right: 0px;" lay-filter="filSelEndDate">
+							<select id="idSelEndDate" name="endDateSelected">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+							</select>
+						</div>
+						<div class="layui-inline controlMarginRight">
+							日
+						</div>
+						<div class="layui-inline">
+							<i id="addNewDateLimit" class="layui-icon layui-icon-add-circle" style="font-size: 30px; color: green;"></i>
+						</div>
+						<div class="layui-inline ">
+							<i class="layui-icon layui-icon-close-fill" style="font-size: 33px; color: red;"></i>
+						</div>
+					</div>
+
+					<!-- 下面这部分不在页面直接展示，需要点击日期后面的加号按钮来动态生成 -->
+					<div id="tplDateLimit" style="display: none;" class="ddd ">
+						<div class="layui-form-item" >
+							<div class="layui-input-inline modifyMarginLeft" style="width:190px">
+								<div class=" monthDateLimit divSpacing" style="margin-left: 0px;">
+									<select name="startMonthSelected" lay-filter="selStartMonth">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+									</select>
+								</div>
+								<div class="layui-inline controlMarginRight">
+									月
+								</div>
+								<div class="layui-form layui-inline monthDateLimit divSpacing" style="margin-right: 0px;" lay-filter="filSelStartDate">
+									<select id="idSelStartDate" name="startDateSelected">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+										<option value="20">20</option>
+										<option value="21">21</option>
+										<option value="22">22</option>
+										<option value="23">23</option>
+										<option value="24">24</option>
+										<option value="25">25</option>
+										<option value="26">26</option>
+										<option value="27">27</option>
+										<option value="28">28</option>
+										<option value="29">29</option>
+										<option value="30">30</option>
+										<option value="31">31</option>
+									</select>
+								</div>
+								<div class="layui-inline controlMarginRight">
+									日
+								</div>
+							</div>
+							<div class="divLineCSS">
+							</div>
+							<div class="layui-inline monthDateLimit divSpacing" style="margin-right: 0px;">
+								<select name="endMonthSelected" lay-filter="selEndMonth">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>
+							</div>
+
+							<div class="layui-inline controlMarginRight">
+								月
+							</div>
+							<div class="layui-form layui-inline monthDateLimit divSpacing" style="margin-right: 0px;" lay-filter="filSelEndDate">
+								<select id="idSelEndDate" name="endDateSelected">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+									<option value="25">25</option>
+									<option value="26">26</option>
+									<option value="27">27</option>
+									<option value="28">28</option>
+									<option value="29">29</option>
+									<option value="30">30</option>
+									<option value="31">31</option>
+								</select>
+							</div>
+							<div class="layui-inline controlMarginRight">
+								日
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-row">
+				<div class="layui-col-md1">
+					<div class="layui-form-item ">
+						<label class="layui-form-label modifyRemarkAlign"><span style="color: red;">*</span>其他限制</label>
+					</div>
+				</div>
+				<div class="layui-col-md11" >
+					<div class="layui-form-item">
+						<div class="layui-input-block modifyMarginLeft">
+							<input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input modifyInputTextCSS">
+						</div>
+						<div class="divLimitRemark">
+							勾选限制条件后，详情不能为空
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<script src="./layui/layui.js"></script>
+		<script>
+			//Demo
+			layui.use(['form', 'jquery'], function() {
+				var form = layui.form,
+					$ = layui.jquery;
+					
+					
+					
+
+				$('body').on('click', '.btnundisplay', function() { //取消人群限制
+					console.log(this);
+					//$(this).addClass('layui-hide');
+					//$('.btnundisplay').css("display","none");
+					this.remove();
+				});
+
+				$('#addNewDateLimit').on('click', function() {
+					
+					var html = $('#tplDateLimit').html();
+					
+					$('#divDateLimitItems').append(html);
+				});
+
+				//监听选择出生日期限制的起始月份
+				form.on('select(selStartMonth)', function(data) {
+					var optvalue = $(data.elem).find("option:checked").attr("value");
+					var o = $('#idSelStartDate');
+					o.empty();
+					var html = "";
+					var days = 0;
+					if (optvalue == 2) {
+						// console.log($("#idSelStartDate option[value='31']"));
+						// $("#idSelStartDate option[value='30']").attr("disabled", true);						
+						// $("#idSelStartDate option[value='31']").remove();
+						// $("#idSelStartDate option[index=20]").remove();						
+						days = 29;
+					} else if ((optvalue == 4) || (optvalue == 6) || (optvalue == 9) || (optvalue == 11)) {
+						days = 30;
+					} else {
+						days = 31;
+					}
+					for (var i = 1; i <= days; i++) {
+						html += "<option value='" + i + "'>" + i + "</option>";
+					}
+					o.html(html);
+					form.render('select', 'filSelStartDate');
+				});
+
+				//监听选择出生日期限制的结束月份
+				form.on('select(selEndMonth)', function(data) {
+					var optvalue = $(data.elem).find("option:checked").attr("value");
+					var o = $('#idSelEndDate');
+					o.empty();
+					var html = "";
+					var days = 0;
+					if (optvalue == 2) {
+						days = 29;
+					} else if ((optvalue == 4) || (optvalue == 6) || (optvalue == 9) || (optvalue == 11)) {
+						days = 30;
+					} else {
+						days = 31;
+					}
+					for (var i = 1; i <= days; i++) {
+						html += "<option value='" + i + "'>" + i + "</option>";
+					}
+					o.html(html);
+					form.render('select', 'filSelEndDate');
+				});
+
+				//监听提交
+				form.on('select(selPeoLimited)', function(data) {
+					if ($('#selPeopleLim').get(0).selectedIndex == 0) {
+						return;
+					}
+					var btnid = $(data.elem).find("option:checked").attr("id") + 'show';
+					console.log(btnid);
+					if ($('#' + btnid).length == 0) { //如果这个按钮没有出现过,那么新添加一个按钮,如果已经存在那么不能再添加按钮
+						$('.divAddBtn').prepend('<button id="' + btnid +
+							'" type="button" class="layui-btn  layui-btn-primary btnundisplay"  lay-submit lay-filter="formDemo">' + $(
+								data.elem).val() +
+							'<i class="layui-icon layui-icon-close-fill" style="font-size: 30px; color:red;vertical-align:middle;"></i></button>'
+						);
+					}
+				});
+
+				//以下代码是用layui内部的过滤器实现的，也可以实现点击按钮后按钮隐藏的功能
+				// form.on('submit(formDemo)', function (data) {
+				//     console.log(data.elem);
+				//     data.elem.style.display = "none";
+				//     //data.elem.style.display="inline";
+				// });
+
+
+			});
+		</script>
+		
+		
+
+	</body>
+</html>

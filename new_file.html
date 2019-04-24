@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<style>.cal{margin:10px;}</style>
+	</head>
+	<body>
+
+<script id="tpl" type="text/html">
+	<div class="cal">
+	<select id="{{d.month}}" class="startm">{{d.optmonth}}</select>
+	<select id="{{d.day}}" class="startd">{{d.optday}}</select>
+	--
+	<select id="{{d.month2}}" class="endm">{{d.optmonth2}}</select>
+	<select id="{{d.day2}}" class="endd">{{d.optday2}}</select>
+	</div>
+</script>	
+
+<div id="target"></div>
+<button class="layui-btn" id="submitBtn">立即提交</button>
+		<script src="./layui/layui.js"></script>
+		<script>
+			layui.use(['form', 'jquery','laytpl'], function() {
+				var form = layui.form,laytpl=layui.laytpl,
+					$ = layui.jquery,
+					
+					options = function(max,selected) {
+						var html = "";
+						for (var i = 1; i <= max; i++) {
+							var s = selected==i?"selected":"";
+							html += "<option value=" + i + " "+s+">" + i + "</option>";
+						}
+						return html;
+					},
+					
+					insert = function(data) {
+						var count = data.data.length,maxDay = 31;
+	
+						for (var i = 0; i < count; i++) {
+							var o = data.data[i], month = o.startMonth,day = o.startDay,month2 = o.endMonth,day2 = o.endDay;
+							if(month==2){maxDay=29}//天数逻辑....
+							
+							var tmpl = tpl.innerHTML; //获取网页中script标签中的所有内容
+							var dat = {'month':'startMonth' + i
+										,'day':'startDay' + i
+										,'month2':'endMonth' + i
+										,'day2':'endDay' + i
+										,'optmonth':options(12,month)
+										,'optday':options(maxDay,day)
+										,'optmonth2':options(12,month2)
+										,'optday2':options(maxDay,day2)
+									};
+							//console.log(dat)
+							
+							//以下是layui的模板语法
+							laytpl(tmpl).render(dat, function(html){
+								// console.log(html);
+							    $('#target').append(html);
+							});
+						}
+
+					},
+
+					getValue = function() {
+						var mm1 = $('#target select.startm'),dd1 = $('#target select.startd'),mm2 = $('#target select.startm'),dd2 = $('#target select.startd');
+						var count = mm1.size(),
+							data = {
+								data: []
+							};
+						for (var i = 0; i < count; i++) {
+							var obj = {};
+							obj.startMonth = $(mm1[i]).val();
+							obj.startDay = $(dd1[i]).val();
+							obj.endMonth = $(mm2[i]).val();
+							obj.endDay = $(dd2[i]).val();
+							data.data.push(obj);//把对象加在数组末尾
+						}
+						
+						return data;
+					}
+
+				$('.dddd1').on('click', function() {
+					var id = this.id,
+						month = $('#' + id).val();
+					var dayId = id.replace('Month', 'Day');
+
+					$('#' + dayId).html('').html(options(month));
+					form.render();
+				});
+
+				
+				//页面启动时加载模拟数据
+				var json = {data:[{startMonth:8,startDay:13,endMonth:9,endDay:10},{startMonth:3,startDay:6,endMonth:12,endDay:20}]};
+				insert(json); //生成动态内容并展示
+				
+				//新增空白
+				//insert({data:[{startMonth:1,startDay:1,endMonth:1,endDay:1}]});
+
+				$('#submitBtn').on('click', function() {
+					var data = getValue();
+					//console.log(JSON.stringify(data));
+					$('body').append(JSON.stringify(data))
+					//$.ajax();
+				});
+			});
+		</script>
+	</body>
+</html>

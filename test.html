@@ -1,0 +1,61 @@
+
+	<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="layui/css/layui.css">  
+  <script src="./layui/layui.js"></script>
+</head>
+<body>
+ <table class="layui-table"lay-filter="demo">
+  <thead>
+    <tr>
+      <th lay-data="{field:'username', width:100}">昵称</th>
+      <th lay-data="{field:'experience', width:80, sort:true}">积分</th>
+      <th lay-data="{field:'sign',edit:'text'}">签名</th>
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      <td>贤心1</td>
+      <td>66</td>
+      <td>人生就像是一场修行a</td>
+    </tr>
+    <tr>
+      <td>贤心2</td>
+      <td>88</td>
+      <td>人生就像是一场修行b</td>
+    </tr>
+    <tr>
+      <td>贤心3</td>
+      <td>33</td>
+      <td>人生就像是一场修行c</td>
+    </tr>
+  </tbody>
+</table>
+              
+          
+
+<script>
+layui.use('table', function(){
+  var table = layui.table;
+  table.init('demo', {
+  
+}); 
+  //监听单元格编辑
+//   table.on('edit(test3)', function(obj){
+//     var value = obj.value //得到修改后的值
+//     ,data = obj.data //得到所在行所有键值
+//     ,field = obj.field; //得到字段
+//     layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+//   });
+});
+</script>
+
+</body>
+</html>
+

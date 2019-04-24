@@ -1,0 +1,218 @@
+/*设置Tab选项卡字体类型和字体大小*/
+.layui-tab-title li {
+	font-size: 20px;
+	font-family: arial;
+}
+
+/*原来修改修改Tab选项卡离下面横线的距离，现在已经不需要*/
+/* .layui-tab-title.firstul {
+	padding-bottom: 15px;
+}
+
+.layui-this:after {
+	padding-bottom: 54px;
+	border-bottom-color: #0f8ae6;
+} */
+
+/* 每个选项卡下面的大标题格式 */
+#itemTitle {
+	font-size: 22px;
+	font-weight: bold;
+	font-family: arial;
+}
+
+/*内容前面加一个红色星号*/
+.addRedStar:before {
+	content: '*';
+	position: relative;
+	top:8px;
+	color: red;
+	font-size: 25px;
+}
+
+/* 修改layui原有label的宽度 */
+.layui-form-label {
+	width: 100px;	
+}
+
+/* 一些解释性文字的样式，灰色显示 */
+.divInterp .pInterp {
+	margin-left: 32px;
+	color: darkgray;
+	font-size: 12px;
+}
+
+/*对 label 样式进行修改*/
+.lblSuppCode {
+	width: 110px;
+	text-align: left;
+}
+
+/* 设计圆角徽章 div */
+.divBadgeCircle {
+	display: inline-block;
+	float: left;
+	margin-top: 6px;
+	padding-top: 5px;
+	width: 25px;
+	height: 25px;
+	vertical-align: middle;
+	border-radius: 50%;
+	padding: 0;
+	font-size: 20px;
+	background-color: #009688;
+	color: #fff;
+	text-align: center;
+}
+
+/* 选择城市，景点，门票种类的选择框外层div设置 */
+.divSelectComm {
+	/* top:8px; */
+	float: left;
+	margin-left: 0px;
+}
+
+/*选择景点 div*/
+.divSelectScenic {
+	clear: left;
+	height: 35px;
+	margin-left: 40px;
+	margin-bottom: 10px;
+}
+
+/*选择景点种类的解释divInterScenicType*/
+#divInterScenicType {
+	clear: left;
+	height: 30px;
+	margin-top: 20px;
+}
+
+/* 客服qq图标设置 img*/
+.imgU77CustServ {
+	height: 30px;
+	width: 30px;
+}
+
+/*产品名称 input text*/
+.inputTextProName {
+	width: 400px;	
+}
+
+/*对产品名称的解释文字格式设置 p*/
+.pProdNameInterp {	
+	font-size: 12px;
+	color:darkgrey;
+	margin-top:2px;
+}
+
+/* 表格头部格式 */
+.layui-table .tr-thCostIncluded {
+	text-align: center;
+}
+
+/* 项目可用数量	 */
+.input-textPrjAvail {
+	width: 50px;
+	margin-right: 5px;
+	display: inline-block;
+}
+
+/* 适用人群限制 */
+#divPeoLimited {
+	margin-left: 0px;
+}
+
+/*产品费率 pProdCostRate*/
+.pProdCostRate {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+/*修改label的属性*/
+.modifyLabelAttr {
+	width: 110px;
+	text-align: left;
+}
+
+/*修改layui单选框后面的空隙大小*/
+.divModifyTextSpacing .layui-form-radio {
+	margin-right: 0px;
+	padding-right: 2px;
+}
+
+/*修改layui-form-item的margin-bottom 防止间隙过大*/
+.layui-form-item {
+	margin-bottom: 10px;
+}
+
+/*修改lay-input中的高度和垂直对齐*/
+.txtModifyVerticalAlign {
+	height: 22px;
+	vertical-align: sub;
+}
+
+/*修改layui-input-block的高度*/
+.layui-input-block {
+	min-height: 22px;
+}
+
+/*修改layui-form-label的样式*/
+/* .layui-form-label {
+	padding-top: 1px;
+	padding-bottom: 1px;
+} */
+
+/*修改layui自带的layui-form-radio样式*/
+div.layui-form-radio {
+	margin-top: 0px;
+}
+
+/*修改单选框后面的文本字体大小，chrome设置最小为12px*/
+.layui-form-radio div {
+	font-size: 12px;
+}
+
+/*修改单选框圆圈大小*/
+.layui-form-radio>i {
+	font-size: 16px;
+	margin-right: 3px;
+}
+
+.layui-form-select {
+	font-size: 12px;
+}
+
+/*修改复选框大小*/
+.layui-form-checkbox[lay-skin="primary"] i {
+	height: 13px;
+	width: 13px;
+	vertical-align: middle;
+}
+
+.layui-form-checkbox[lay-skin="primary"] span {
+	line-height: 14px;
+	font-size: 12px;
+	
+}
+
+.layui-form-checkbox[lay-skin="primary"] {
+	padding-left: 20px;
+}
+/*修改select框重绘后大小*/
+input[type=text].layui-unselect {
+	border: 1px solid lightgray;
+	/* height: 22px; */
+	margin-top: 0px;
+	padding-left: 6px;
+	padding-right: 10px;
+}
+
+/*修改tab页3的layui-input-block的左缩进*/
+.modifyLayuiInputBlcok .layui-input-block{
+	margin-left: 5px;
+}
+
+.changeCheckboxMargintop .layui-form-checkbox[lay-skin="primary"]{
+	margin-top: 3px;
+	
+}
